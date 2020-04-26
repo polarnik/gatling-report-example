@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.qaload</groupId>
+    <artifactId>gatling-report-example</artifactId>
+    <version>0.1.0</version>
+
+    <description>Performance tests with different load models and Gatling</description>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <gatling.version>3.3.1</gatling.version>
+        <gatling-plugin.version>3.0.5</gatling-plugin.version>
+        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+        <scala-maven-plugin.version>4.3.0</scala-maven-plugin.version>
+
+        <simulation>OpenModelRampUsers2</simulation>
+        <namespace>io.qaload.gatling.reportExample.simulation</namespace>
+
+        <scala.version>2.12.10</scala.version>
+
+        <runDescription></runDescription>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>${gatling.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-app</artifactId>
+            <version>${gatling.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-recorder</artifactId>
+            <version>${gatling.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>1.0.10</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>${gatling-plugin.version}</version>
+
+                <configuration>
+                    <!--
+                    A name of a Simulation class to run.
+                    -->
+                    <simulationClass>${namespace}.${simulation}</simulationClass>
+                    <!--
+                    Iterate over multiple simulations if more than one simulation file is found. By default false.
+                    If multiple simulations are found but {runMultipleSimulations} is false the execution will fail.
+                    -->
+                    <runMultipleSimulations>true</runMultipleSimulations>
+                    <!--
+                    List of include patterns to use for scanning. Includes all simulations by default.
+                    -->
+                    <includes>
+                        <include>${namespace}.${simulation}</include>
+                    </includes>
+                    <!--
+                    List of exclude patterns to use for scanning. Excludes none by default.
+                    -->
+                    <excludes>
+                    </excludes>
+                    <!--
+                    Run simulation but does not generate reports. By default false.
+                    -->
+                    <noReports>false</noReports>
+
+                    <runDescription>${project.groupId}:${project.artifactId} ${namespace}.${simulation} - ${maven.build.timestamp} ${runDescription}</runDescription>
+
+                    <!--
+                    Will cause the project build to look successful, rather than fail, even
+                    if there are Gatling test failures. This can be useful on a continuous
+                    integration server, if your only option to be able to collect output
+                    files, is if the project builds successfully.
+                    -->
+                    <failOnError>true</failOnError>
+
+                    <!--
+                    Continue execution of simulations despite assertion failure. If you have
+                    some stack of simulations and you want to get results from all simulations
+                    despite some assertion failures in previous one.
+                    -->
+                    <continueOnAssertionFailure>false</continueOnAssertionFailure>
+
+
+                    <useOldJenkinsJUnitSupport>false</useOldJenkinsJUnitSupport>
+
+                    <!--
+                    Extra JVM arguments to pass when running Gatling.
+                    -->
+                    <jvmArgs>
+                        <jvmArg>-server</jvmArg>
+                        <jvmArg>-Xmx3G</jvmArg>
+                    </jvmArgs>
+
+                    <!--
+                    Override Gatling's default JVM args, instead of replacing them.
+                    -->
+                    <overrideJvmArgs>false</overrideJvmArgs>
+
+                    <!--
+                    Propagate System properties to forked processes.
+                    -->
+                    <propagateSystemProperties>true</propagateSystemProperties>
+
+
+                    <compilerJvmArgs>
+                        <compilerJvmArg></compilerJvmArg>
+                    </compilerJvmArgs>
+
+                    <!-- if compiler should be disabled, typically because another plugin has already compiled sources -->
+                    <disableCompiler>false</disableCompiler>
+
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>Engine</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/test-jar-with-dependencies.xml</descriptor>
+                    </descriptors>
+                    <archive>
+                        <manifest>
+                            <mainClass>Engine</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>reportOnly</id>
+            <properties>
+                <run>test-20191113154848370</run>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.gatling</groupId>
+                        <artifactId>gatling-maven-plugin</artifactId>
+                        <configuration>
+                            <!--
+                            A name of a Simulation class to run.
+                            -->
+                            <simulationClass></simulationClass>
+                            <!--
+                            Generate the reports for the simulation in this folder.
+                            -->
+                            <reportsOnly>${project.build.testOutputDirectory}/${run}/simulation.log</reportsOnly>
+
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

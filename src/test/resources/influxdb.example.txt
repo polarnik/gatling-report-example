@@ -1,0 +1,96 @@
+gatling.openmodelatonceusers.users.allUsers.active 0 1577784130
+gatling.openmodelatonceusers.users.allUsers.waiting 1 1577784130
+gatling.openmodelatonceusers.users.allUsers.done 0 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.active 0 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.waiting 1 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.done 0 1577784130
+
+
+templates = [
+"gatling.*.*.*.count measurement.simulation.request.status.field",
+"gatling.*.*.*.max measurement.simulation.request.status.field",
+"gatling.*.*.*.mean measurement.simulation.request.status.field",
+"gatling.*.*.*.min measurement.simulation.request.status.field",
+"gatling.*.*.*.percentiles50 measurement.simulation.request.status.field",
+"gatling.*.*.*.percentiles75 measurement.simulation.request.status.field",
+"gatling.*.*.*.percentiles95 measurement.simulation.request.status.field",
+"gatling.*.*.*.percentiles99 measurement.simulation.request.status.field",
+"gatling.*.*.*.stdDev measurement.simulation.request.status.field",
+"gatling.*.users.*.* measurement.simulation.measurement.request.field",
+"gatling.*.*.*.*.*.ok.* measurement.simulation.group1.group2.group3.request.status.field",
+"gatling.*.*.*.*.*.ko.* measurement.simulation.group1.group2.group3.request.status.field",
+"gatling.*.*.*.*.*.all.* measurement.simulation.group1.group2.group3.request.status.field",
+"gatling.*.*.*.*.ok.* measurement.simulation.group1.group2.request.status.field",
+"gatling.*.*.*.*.ko.* measurement.simulation.group1.group2.request.status.field",
+"gatling.*.*.*.*.all.* measurement.simulation.group1.group2.request.status.field",
+"gatling.*.*.*.ok.* measurement.simulation.group1.request.status.field",
+"gatling.*.*.*.ko.* measurement.simulation.group1.request.status.field",
+"gatling.*.*.*.all.* measurement.simulation.group1.request.status.field",
+"gatling.*.*.ok.* measurement.simulation.request.status.field",
+"gatling.*.*.ko.* measurement.simulation.request.status.field",
+"gatling.*.*.all.* measurement.simulation.request.status.field"
+]
+
+templates = [
+"gatling.*.*.*.* measurement.simulation.request.status.field",
+"gatling.*.users.*.* measurement.simulation.measurement.request.field"
+]
+
+gatling.openmodelatonceusers.users.allUsers.active 1 1577784130
+gatling.openmodelatonceusers.users.allUsers.waiting 0 1577784130
+gatling.openmodelatonceusers.users.allUsers.done 0 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.active 1 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.waiting 0 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.done 0 1577784130
+gatling.openmodelatonceusers.allRequests.ok.count 1 1577784130
+gatling.openmodelatonceusers.allRequests.ok.min 93 1577784130
+gatling.openmodelatonceusers.allRequests.ok.max 93 1577784130
+gatling.openmodelatonceusers.allRequests.ok.mean 93 1577784130
+gatling.openmodelatonceusers.allRequests.ok.stdDev 0 1577784130
+gatling.openmodelatonceusers.allRequests.ok.percentiles50 93 1577784130
+gatling.openmodelatonceusers.allRequests.ok.percentiles75 93 1577784130
+gatling.openmodelatonceusers.allRequests.ok.percentiles95 93 1577784130
+gatling.openmodelatonceusers.allRequests.ok.percentiles99 93 1577784130
+gatling.openmodelatonceusers.allRequests.ko.count 0 1577784130
+gatling.openmodelatonceusers.allRequests.all.count 1 1577784130
+gatling.openmodelatonceusers.allRequests.all.min 93 1577784130
+gatling.openmodelatonceusers.allRequests.all.max 93 1577784130
+gatling.openmodelatonceusers.allRequests.all.mean 93 1577784130
+gatling.openmodelatonceusers.allRequests.all.stdDev 0 1577784130
+gatling.openmodelatonceusers.allRequests.all.percentiles50 93 1577784130
+gatling.openmodelatonceusers.allRequests.all.percentiles75 93 1577784130
+gatling.openmodelatonceusers.allRequests.all.percentiles95 93 1577784130
+gatling.openmodelatonceusers.allRequests.all.percentiles99 93 1577784130
+gatling.openmodelatonceusers./_(GET).ok.count 1 1577784130
+gatling.openmodelatonceusers./_(GET).ok.min 93 1577784130
+gatling.openmodelatonceusers./_(GET).ok.max 93 1577784130
+gatling.openmodelatonceusers./_(GET).ok.mean 93 1577784130
+gatling.openmodelatonceusers./_(GET).ok.stdDev 0 1577784130
+gatling.openmodelatonceusers./_(GET).ok.percentiles50 93 1577784130
+gatling.openmodelatonceusers./_(GET).ok.percentiles75 93 1577784130
+gatling.openmodelatonceusers./_(GET).ok.percentiles95 93 1577784130
+gatling.openmodelatonceusers./_(GET).ok.percentiles99 93 1577784130
+gatling.openmodelatonceusers./_(GET).ko.count 0 1577784130
+gatling.openmodelatonceusers./_(GET).all.count 1 1577784130
+gatling.openmodelatonceusers./_(GET).all.min 93 1577784130
+gatling.openmodelatonceusers./_(GET).all.max 93 1577784130
+gatling.openmodelatonceusers./_(GET).all.mean 93 1577784130
+gatling.openmodelatonceusers./_(GET).all.stdDev 0 1577784130
+gatling.openmodelatonceusers./_(GET).all.percentiles50 93 1577784130
+gatling.openmodelatonceusers./_(GET).all.percentiles75 93 1577784130
+gatling.openmodelatonceusers./_(GET).all.percentiles95 93 1577784130
+gatling.openmodelatonceusers./_(GET).all.percentiles99 93 1577784130
+
+
+gatling.openmodelatonceusers.users.allUsers.active 1 1577784130
+gatling.openmodelatonceusers.users.allUsers.waiting 0 1577784130
+gatling.openmodelatonceusers.users.allUsers.done 0 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.active 1 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.waiting 0 1577784130
+gatling.openmodelatonceusers.users.atOnceUsers.done 0 1577784130
+gatling.openmodelatonceusers.allRequests.ok.count 0 1577784130
+gatling.openmodelatonceusers.allRequests.ko.count 0 1577784130
+gatling.openmodelatonceusers.allRequests.all.count 0 1577784130
+gatling.openmodelatonceusers./_(GET).ok.count 0 1577784130
+gatling.openmodelatonceusers./_(GET).ko.count 0 1577784130
+gatling.openmodelatonceusers./_(GET).all.count 0 1577784130
