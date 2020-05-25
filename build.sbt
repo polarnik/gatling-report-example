@@ -11,6 +11,7 @@ scalacOptions := Seq(
 libraryDependencies += "io.gatling.highcharts" % "gatling-charts-highcharts" % "3.3.1"  % "test"
 libraryDependencies += "io.gatling"            % "gatling-test-framework"    % "3.3.1"  % "test"
 libraryDependencies += "org.aeonbits.owner"    % "owner"                     % "1.0.10" % "test"
+libraryDependencies += "org.codehaus.groovy"    % "groovy-all"               % "3.0.0" % "test"
 
 javaOptions in Gatling := overrideDefaultJavaOptions("-Xms1024m", "-Xmx2048m")
 

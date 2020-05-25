@@ -53,6 +53,11 @@
             <version>1.0.10</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>3.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

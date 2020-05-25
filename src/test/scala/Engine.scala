@@ -25,7 +25,7 @@ object Engine extends App {
 
     data.graphite.RootPathPrefix -> s"v2.gatling.${cfg.run()}.${cfg.host()}",
 
-    core.SimulationClass ->  "io.qaload.gatling.reportExample.simulation.OpenModel_AtOnceUsers_Group",
+    core.SimulationClass ->  "io.qaload.gatling.reportExample.simulation.Logback_Report",
     core.RunDescription -> "open workload model"
   )
 
