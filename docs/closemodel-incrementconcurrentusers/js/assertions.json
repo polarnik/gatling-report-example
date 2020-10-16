@@ -1,0 +1,10 @@
+{
+  "simulation": "io.qaload.gatling.reportExample.simulation.CloseModel_IncrementConcurrentUsers",
+  "simulationId": "closemodel-incrementconcurrentusers",
+  "start": 1602842834021,
+  "description": "closed workload model",
+  "scenarios": ["incrementConcurrentUsers"],
+  "assertions": [
+
+  ]
+}

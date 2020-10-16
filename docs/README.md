@@ -5,11 +5,12 @@
 `io.qaload.gatling.reportExample.simulation.OpenModel_IncrementUsersPerSec`
 
 * https://snapshot.raintank.io/dashboard/snapshot/BrWg0ACW5jIVtJunSR2BnS3RFndVGtfZ?orgId=2
-* [openmodel-incrementuserspersec](https://polarnik.github.io/gatling-report-example/openmodel-incrementuserspersec/index.html)
+* openmodel-incrementuserspersec/index.html
+
 
 ## Закрытая модель нагрузки
 
 `io.qaload.gatling.reportExample.simulation.CloseModel_IncrementConcurrentUsers`
 
 * https://snapshot.raintank.io/dashboard/snapshot/OhN89UeAACTDcGP4m9WAJp8w4nMvCuW0
-* [closemodel-incrementconcurrentusers](https://polarnik.github.io/gatling-report-example/closemodel-incrementconcurrentusers/index.html)
+* closemodel-incrementconcurrentusers/index.html

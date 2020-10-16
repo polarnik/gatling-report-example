@@ -1,0 +1,10 @@
+{
+  "simulation": "io.qaload.gatling.reportExample.simulation.OpenModel_IncrementUsersPerSec",
+  "simulationId": "openmodel-incrementuserspersec",
+  "start": 1602843250159,
+  "description": "open workload model",
+  "scenarios": ["incrementUsersPerSec"],
+  "assertions": [
+
+  ]
+}
