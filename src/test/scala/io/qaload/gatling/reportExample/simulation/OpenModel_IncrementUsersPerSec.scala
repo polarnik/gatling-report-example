@@ -39,20 +39,12 @@ import scala.concurrent.duration._
 class OpenModel_IncrementUsersPerSec extends Simulation {
   setUp(
 
-    SimpleScenario.simpleScenario("none").inject(
-      atOnceUsers(1),                                              // 0
-      nothingFor(5 seconds),
-    ).protocols(Protocol.localHttpConf),
-
     SimpleScenario.simpleScenario("incrementUsersPerSec").inject(  //
-      incrementUsersPerSec(500)                               // usersPerSec
-        .times(5)                                              // nbOfUsers
-        .eachLevelLasting(60 seconds)                                    // #############
-        .separatedByRampsLasting(5 seconds)                     // **
-        .startingFrom(0),                                    // startingUsers
-
-      nothingFor(5 seconds),
-      atOnceUsers(1)                                               // 1
+      incrementUsersPerSec(0.5)                               // usersPerSec
+        .times(12)                                              // nbOfUsers
+        .eachLevelLasting(20 seconds)                                    // #############
+        .separatedByRampsLasting(0 seconds)                     // **
+        .startingFrom(0.5),                                    // startingUsers       // 1
     ).protocols(Protocol.httpConf)
   )
 }

@@ -30,9 +30,6 @@ object SimpleScenario {
       .exec(
         http("/40x.html (GET)").get("/40x.html")
       )
-      .exec(
-        http("/50x.html (GET)").get("/50x.html")
-      )
 
 
   def simpleScenarioWithPace(name: String, paceDuration: Duration, levelDuration: Duration): ScenarioBuilder =
@@ -50,30 +47,24 @@ object SimpleScenario {
     exec(
       http("/ (GET)").get("/")
     )
-      .exec(
-        http("/40x.html (GET)").get("/40x.html")
-      )
-      .exec(
-        http("/50x.html (GET)").get("/50x.html")
-      )
-      .exec(
-        http("/image1.png").get("/image1.png")
-      )
-      .exec(
-        http("/image2.png").get("/image2.png")
-      )
-      .exec(
-        http("/image3.png").get("/image3.png")
-      )
-      .exec(
-        http("/image4.png").get("/image4.png")
-      )
-      .exec(
-        http("/image5.png").get("/image5.png")
-      )
-      .exec(
-        http("/image5.png").get("/image5.png")
-      )
+    .exec(
+      http("/40x.html (GET)").get("/40x.html")
+    )
+    .exec(
+      http("/2020/05/15/ (GET)").get("/2020/05/15/")
+    )
+    .exec(
+      http("/2020/05/16/ (GET)").get("/2020/05/16/")
+    )
+    .exec(
+      http("/2020/05/17/ (GET)").get("/2020/05/17/")
+    )
+    .exec(
+      http("/2020/05/18/ (GET)").get("/2020/05/18/")
+    )
+    .exec(
+      http("/2020/05/19/ (GET)").get("/2020/05/19/")
+    )
 
   def simpleScenarioWithImageAndGroups(): ChainBuilder =
     exec(
@@ -81,30 +72,14 @@ object SimpleScenario {
     )
       .group("errorPages") {
         exec(http("/40x.html (GET)").get("/40x.html"))
-          .exec(http("/50x.html (GET)").get("/50x.html"))
-          .pause(20 second)
       }
-      .group("images") {
+      .group("may 2020") {
         exec(
-          http("/image1.png").get("/image1.png")
+          http("/2020/05/15/ (GET)").get("/2020/05/15/")
         )
-          .exec(
-            http("/image2.png").get("/image2.png")
-          )
-          .exec(
-            http("/image3.png").get("/image3.png")
-          )
-          .pause(20 second)
-          .group("bigImages") {
-            exec(http("/image4.png").get("/image4.png"))
-              .group("veryBigImages") {
-                exec(http("/image5.png").get("/image5.png"))
-                  .group("double") {
-                    exec(http("/image5.png").get("/image5.png"))
-                  }
-                  .pause(20 second)
-              }
-          }
+        .exec(
+          http("/2020/05/16/ (GET)").get("/2020/05/16/")
+        )
       }
 
   def simpleScenarioWithImage(name: String): ScenarioBuilder = scenario(name)

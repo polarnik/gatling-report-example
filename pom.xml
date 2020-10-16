@@ -19,7 +19,7 @@
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
         <scala-maven-plugin.version>4.3.0</scala-maven-plugin.version>
 
-        <simulation>OpenModelRampUsers2</simulation>
+        <simulation>OpenModel_ConstantUsersPerSec</simulation>
         <namespace>io.qaload.gatling.reportExample.simulation</namespace>
 
         <scala.version>2.12.10</scala.version>
@@ -53,21 +53,58 @@
             <version>1.0.10</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>3.0.0</version>
-        </dependency>
     </dependencies>
 
     <build>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
             <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>4.4.0</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>script</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <script>
+                        println ("Hello from pom script :-)")
+                    </script>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>4.4.0</version>
+                <executions>
+                    <execution>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>script</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scriptFile>package.scala</scriptFile>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>${gatling-plugin.version}</version>
-
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <!--
                     A name of a Simulation class to run.
@@ -145,6 +182,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>

@@ -9,17 +9,11 @@ import scala.concurrent.duration._
 class CloseModel_RampConcurrentUsers_and_ConstantConcurrentUsers extends Simulation {
   setUp(
     SimpleScenario.simpleScenarioWithPace("rampConcurrentUsers and constantConcurrentUsers", 2 second, 30 second).inject(
-      constantConcurrentUsers(1) during (0.01 seconds),
-      constantConcurrentUsers(0) during (5 seconds),
-
       constantConcurrentUsers(1) during (30 seconds),
       constantConcurrentUsers(3) during (30 seconds),
       constantConcurrentUsers(5) during (30 seconds),
       constantConcurrentUsers(0) during (30 seconds),
-      rampConcurrentUsers(1) to (5) during (90 seconds),
-
-      constantConcurrentUsers(0) during (5 seconds),
-      constantConcurrentUsers(1) during (0.01 seconds)
+      rampConcurrentUsers(1) to (5) during (90 seconds)
     ).protocols(Protocol.httpConf),
 
 //    SimpleScenario.simpleScenario("rampConcurrentUsers and constantConcurrentUsers").inject(

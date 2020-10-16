@@ -34,11 +34,11 @@ class OpenModel_ConstantUsersPerSec  extends Simulation{
       constantUsersPerSec(10)  during (20 seconds),   // 1111
       constantUsersPerSec(0)  during (5 seconds),
       constantUsersPerSec(20)  during (20 seconds),   // 2222
-      constantUsersPerSec(0)  during (5 seconds),
-      constantUsersPerSec(30)  during (20 seconds),   // 3333
-      constantUsersPerSec(60)  during (20 seconds),   // 4444
-      constantUsersPerSec(150)  during (20 seconds),  // 5555
-      constantUsersPerSec(30)  during (20 seconds),   // 6666
+//      constantUsersPerSec(0)  during (5 seconds),
+//      constantUsersPerSec(30)  during (20 seconds),   // 3333
+//      constantUsersPerSec(60)  during (20 seconds),   // 4444
+//      constantUsersPerSec(150)  during (20 seconds),  // 5555
+//      constantUsersPerSec(30)  during (20 seconds),   // 6666
       nothingFor(5 seconds),
       atOnceUsers(1)                                 // 7
     ).protocols(Protocol.httpConf)

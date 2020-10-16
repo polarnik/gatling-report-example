@@ -19,13 +19,7 @@ class
 CloseModel_ConstantConcurrentUsers extends Simulation{
   setUp(
     SimpleScenario.simpleScenario("constantConcurrentUsers").inject(
-      constantConcurrentUsers(1) during (0.01 seconds),
-      constantConcurrentUsers(0) during (10 seconds),
-
-      constantConcurrentUsers(100) during (60 seconds),
-
-      constantConcurrentUsers(0) during (10 seconds),
-      constantConcurrentUsers(1) during (0.01 seconds)
+      constantConcurrentUsers(10) during (60 seconds),
     ).protocols(Protocol.httpConf)
   )
 }

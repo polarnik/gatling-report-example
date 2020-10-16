@@ -38,7 +38,7 @@ object Protocol {
     .doNotTrackHeader("1")
     .acceptEncodingHeader("gzip, deflate, br")
     .acceptLanguageHeader("en-US,en;q=0.5")
-    .inferHtmlResources()
+    //.inferHtmlResources()
     .shareConnections
     .maxConnectionsPerHostLikeFirefox
     .header("Upgrade-Insecure-Requests", "1")

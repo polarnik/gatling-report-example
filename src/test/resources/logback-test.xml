@@ -49,36 +49,6 @@
         <neverBlock>false</neverBlock>
     </appender>
 
-    <appender name="LogbackReport_Only_File" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
-            <evaluator class="ch.qos.logback.classic.boolex.GEventEvaluator">
-                <expression>
-                    e.getLoggerName() == "io.qaload.gatling.reportExample.simulation.Logback_Report"
-                </expression>
-            </evaluator>
-            <OnMismatch>DENY</OnMismatch>
-            <OnMatch>NEUTRAL</OnMatch>
-        </filter>
-        <file>logs/LogbackReport_Only_File.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/LogbackReport_Only_File-loadtest-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <maxFileSize>10MB</maxFileSize>
-            <maxHistory>200</maxHistory>
-            <totalSizeCap>2GB</totalSizeCap>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%date{ISO8601};%msg%n</pattern>
-            <immediateFlush>true</immediateFlush>
-        </encoder>
-    </appender>
-
-    <appender name="ASYNC_LogbackReport_Only_File" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="LogbackReport_Only_File"/>
-        <queueSize>500</queueSize>
-        <discardingThreshold>0</discardingThreshold>
-        <includeCallerData>false</includeCallerData>
-        <neverBlock>false</neverBlock>
-    </appender>
 
     <!--
     <logger name="io.netty.util.internal" level="INFO" />
@@ -100,7 +70,6 @@
 
     <root level="DEBUG">
         <appender-ref ref="ASYNCFILE" />
-        <appender-ref ref="ASYNC_LogbackReport_Only_File" />
         <appender-ref ref="CONSOLE" />
     </root>
 

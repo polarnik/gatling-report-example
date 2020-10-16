@@ -25,7 +25,7 @@ import io.gatling.core.Predef._
  * starting from zero or the optional initialConcurrentUsers
  * and separated by optional ramps lasting rampDuration
  */
-        class CloseModel_IncrementConcurrentUsers extends Simulation {
+class CloseModel_IncrementConcurrentUsers extends Simulation {
 
   def simpleScenarioWithPace(name: String, paceDuration: Duration)  =
     scenario(name)
@@ -46,21 +46,53 @@ import io.gatling.core.Predef._
       )
 
 
+/*
+               +------+
+               |      |
+        +------+      |
+        |             |
+ +------+             |
+ |                    |
+ +                    +
+
+
+ */
   setUp(
     simpleScenarioWithPace("incrementConcurrentUsers", 200 millisecond).inject(
-      constantConcurrentUsers(1) during (0.01 seconds),
-      constantConcurrentUsers(0) during (10 seconds),
 
-      incrementConcurrentUsers(2)
-        .times(5)
-        .eachLevelLasting(100 second)
+      incrementConcurrentUsers(4)
+        .times(10)
+        .eachLevelLasting(10 second)
         .separatedByRampsLasting(0 second)
-        .startingFrom(2),
-
-      constantConcurrentUsers(0) during (10 seconds),
-      constantConcurrentUsers(1) during (0.01 seconds)
-    ).protocols(Protocol.httpConf).throttle(
-      reachRps(70) in (600 seconds)
-    )
+        .startingFrom(2)
+    ).protocols(Protocol.httpConf)
+      .throttle(
+        jumpToRps(1),
+        holdFor(20 second),
+        jumpToRps(2),
+        holdFor(20 second),
+        jumpToRps(3),
+        holdFor(20 second),
+        jumpToRps(4),
+        holdFor(20 second),
+        jumpToRps(5),
+        holdFor(20 second),
+        jumpToRps(6),
+        holdFor(20 second),
+        jumpToRps(7),
+        holdFor(20 second),
+        jumpToRps(8),
+        holdFor(20 second),
+        jumpToRps(9),
+        holdFor(20 second),
+        jumpToRps(10),
+        holdFor(20 second),
+        jumpToRps(11),
+        holdFor(20 second),
+        jumpToRps(12),
+        holdFor(20 second),
+        jumpToRps(13),
+        holdFor(10 second)
+      )
   )
 }
