@@ -13,6 +13,3 @@
 
 * [Gatling Grafana Report: Gatling - closed model](https://snapshot.raintank.io/dashboard/snapshot/OhN89UeAACTDcGP4m9WAJp8w4nMvCuW0)
 * [closemodel-incrementconcurrentusers](https://polarnik.github.io/gatling-report-example/reports/closemodel-incrementconcurrentusers/index.html)
-
-
-
